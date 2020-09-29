@@ -9,6 +9,6 @@
     <form action="" id="signin">
         <input type="text" id="username" name="username" placeholder="Type your username">
         <input type="text" id="password" name="password" placeholder="Type your password">
-        <button type="submit">&#xf0da;</button>
+        <button class="form_btn" type="submit">&#xf0da;</button>
     </form>
 </div>
