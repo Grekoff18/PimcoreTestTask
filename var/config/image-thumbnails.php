@@ -3,13 +3,7 @@
 return [
     "btn" => [
         "items" => [
-            [
-                "method" => "resize",
-                "arguments" => [
-                    "width" => 25,
-                    "height" => 25
-                ]
-            ]
+
         ],
         "medias" => [
 
@@ -17,15 +11,15 @@ return [
         "name" => "btn",
         "description" => "",
         "group" => "",
-        "format" => "SOURCE",
+        "format" => "PNG",
         "quality" => 85,
         "highResolution" => 0.0,
         "preserveColor" => FALSE,
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1601471524,
-        "creationDate" => 1601471121,
+        "modificationDate" => 1601481598,
+        "creationDate" => 1601481549,
         "forcePictureTag" => FALSE,
         "id" => "btn"
     ]
