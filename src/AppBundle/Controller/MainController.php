@@ -1,14 +1,14 @@
 <?php
 
-namespace AppBundle\Controller;
+    namespace AppBundle\Controller;
 
-use Pimcore\Controller\FrontendController;
-use Symfony\Component\HttpFoundation\Request;
+    use Pimcore\Controller\FrontendController;
+    use Symfony\Component\HttpFoundation\Request;
 
-class MainController extends FrontendController {
+    class MainController extends FrontendController {
 
-    public function defaultAction(Request $request)
-    {
+        public function defaultAction(Request $request)
+        {
 
+        }
     }
-}

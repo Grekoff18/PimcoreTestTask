@@ -15,7 +15,7 @@
         <input type="text" id="password" name="password" placeholder="Type your password">
         <button class="form_btn" type="submit">
             <?php if ($form_btn) { ?>
-                <img src="<?=$form_btn?>"/>
+                <img src="<?=$form_btn->getThumbnail("btn")?>"/>
             <?php } ?>
         </button>
         <p><?=$this->input("link-description");?><a class="register_link" href="<?=\Pimcore\Model\Document::getById(2)?>">click here</a></p>
