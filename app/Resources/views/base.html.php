@@ -4,7 +4,8 @@
                      ->appendHttpEquiv('X-UA-Compatible', 'ie=edge');
     // Setting dynamic stylesheets.
     $this->headLink()->setStylesheet('/css/style.css')
-                     ->prependStylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', 'screen', true, ['integrity' => 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z', 'crossorigin' => 'anonymous']);
+                     ->prependStylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', 'screen', true, ['integrity' => 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z', 'crossorigin' => 'anonymous'])
+                     ->prependStylesheet('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap', 'screen', true, ['rel' => 'stylesheet']);
     // Setting dynamic javascript files
     $this->headScript()->appendFile('/js/script.js', 'text/javascript');
 ?>
