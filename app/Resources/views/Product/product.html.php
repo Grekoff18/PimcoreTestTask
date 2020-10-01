@@ -9,7 +9,7 @@
 
 <header class="header">
     <section class="header_menu">
-        <?php $this->extend("navbar.html.php"); ?>
+        <?=$this->template("Sections/navbar.html.php");?>
     </section>
 </header>
 

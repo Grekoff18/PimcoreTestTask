@@ -1,6 +1,5 @@
 <?php
     use Pimcore\Model\Asset;
-    use Pimcore\Model\Document\Page;
     // appending base template
     $this->extend('base.html.php');
     // rewriting title tag
@@ -18,7 +17,15 @@
                 <img src="<?=$form_btn->getThumbnail("btn")?>"/>
             <?php } ?>
         </button>
-        <p><?=$this->input("link-description");?><a class="register_link" href="<?=\Pimcore\Model\Document::getById(2)?>">click here</a></p>
+        <p>
+            <?=$this->input("link-description");?>
+            <?php
+               // Creates a block that generates links
+                while ($this->block("signInLink", ["limit" => 1])->loop()) {
+                    echo $this->link("link", ["class" => "register_link"]);
+                }
+            ?>
+        </p>
     </form>
 </div>
 
