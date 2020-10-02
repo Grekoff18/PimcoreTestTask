@@ -32,9 +32,11 @@
         public function getArrayOfProducts()
         {
             // Checking if the array is empty
-            if (DataObject\Product::getById(3) && DataObject\Product::getById(4)) {
+            if (DataObject\Product::getById(4)
+                && DataObject\Product::getById(5)
+                && DataObject\Product::getById(6)) {
                 // If arrays exist -> write to the item array
-                array_push($this->items, DataObject\Product::getById(3), DataObject\Product::getById(4));
+                array_push($this->items, DataObject\Product::getById(4), DataObject\Product::getById(5), DataObject\Product::getById(6));
             }
             return $this->items;
         }
@@ -46,6 +48,7 @@
             // Return template some product with a ready-made structure
             return  "<h3 class='product_title'>".$product_array[$product_num]->getName()."</h3>"
                   . "<p class='product_description'>".$product_array[$product_num]->getDescription()."</p>"
-                  . $product_array[$product_num]->getImg()->getThumbnail("logo")->getHtml();
+                  . $product_array[$product_num]->getImg()->getThumbnail("logo")->getHtml()
+                  . "<button class='add_to_card'>Add to card</button>";
         }
     }

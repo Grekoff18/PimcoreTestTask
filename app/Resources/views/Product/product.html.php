@@ -12,11 +12,11 @@
 ?>
 <!--MAIN SECTION-->
 <main class="main_section">
-    <section class="product_wrapper row">
+    <section class="product_wrapper">
         <!--PRODUCT TEMPLATINGS-->
         <?php
             for ($i = 0; $i < $products->getCount(); $i++) { ?>
-                <div class="product_bloc col-4">
+                <div class="product_bloc">
                     <?=$products->getProductName($i)?>
                 </div>
         <?php   } ?>
