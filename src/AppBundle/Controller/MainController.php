@@ -15,9 +15,10 @@
 
         }
 
-        public function getImg($id)
+        public function getImg($id, $thumbnail_name)
         {
+            // This method comeback some img with current id
             $this->image = Asset::getById($id);
-            return $this->image;
+            return $this->image->getThumbnail($thumbnail_name)->getHtml();
         }
     }

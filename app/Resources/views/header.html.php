@@ -5,8 +5,9 @@
 ?>
 <!--HEADER SECTION-->
 <header class="header">
+    <!--HEADER LOGO-->
     <section class="header_logo">
-        <a href="<?=Page::getById(1)?>"><img src="<?=$main->getImg(10);?>"></a>
+        <a href="<?=Page::getById(1)?>"><?=$main->getImg(10, "logo");?></a>
     </section>
     <!--HEADER MENU-->
     <section class="header_menu">

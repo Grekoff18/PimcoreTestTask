@@ -1,7 +1,7 @@
 <?php
     use Pimcore\Model\Asset;
     use Pimcore\Model\Document\Page;
-    use Pimcore\Model\DataObject;
+    $products = new \AppBundle\Controller\ProductController();
 
     // appending base template
     $this->extend('base.html.php');
@@ -10,28 +10,15 @@
     // displaying header section
     echo $this->template("header.html.php");
 ?>
+<!--MAIN SECTION-->
 <main class="main_section">
     <section class="product_wrapper row">
-        <div class="product_bloc col-4">
-            <?php
-                if ($this->editmode):
-                    echo $this->relation('product');
-                else: ?>
-                    <?php
-                    $product = $this->relation('product')->getElement();
-                    $picture = $product->getImg();
-                    if ($picture instanceof Pimcore\Model\Asset\Image) { ?>
-                        <h2><?=$this->escape($product->getName());?></h2>
-                        <p><?=$product->getDescription();?></p>
-                        <?=$picture->getThumbnail("logo")->getHtml();?>
-                    <?php }
-                endif;?>
-        </div>
+        <!--PRODUCT TEMPLATINGS-->
         <?php
-            $products = new \AppBundle\Controller\ProductController();
-        ?>
-        <div class="products">
-            <?=$products->getProductName(1);?>
-        </div>
+            for ($i = 0; $i < $products->getCount(); $i++) { ?>
+                <div class="product_bloc col-4">
+                    <?=$products->getProductName($i)?>
+                </div>
+        <?php   } ?>
     </section>
 </main>
