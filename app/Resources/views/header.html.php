@@ -14,6 +14,7 @@
         <nav class="navbar">
             <!--APPENDING NAV_BAR TEMPLATE-->
             <?=$this->template("Section/navSection.html.php");?>
+            <button class="shopping_cart"><?=$main->getImg(14, "logo");?></button>
         </nav>
     </section>
 </header>

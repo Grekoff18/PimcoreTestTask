@@ -12,7 +12,7 @@
         <label>Sign In</label>
         <input type="text" id="username" name="username" placeholder="Type your username">
         <input type="text" id="password" name="password" placeholder="Type your password">
-        <button class="form_btn" type="submit"><?=$main->getImg(6, "logo");?></button>
+        <button id="form_Btn" class="form_btn" type="submit"><?=$main->getImg(6, "logo");?></button>
         <p>
             <?=$this->input("link-description");?>
             <?php

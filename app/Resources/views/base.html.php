@@ -24,6 +24,7 @@
     <div class="container">
         <?php $this->slots()->output('_content'); ?>
     </div>
+    <div class="modal_bg"></div>
     <!-- Append our scripts -->
     <?=$this->headScript();?>
 </body>

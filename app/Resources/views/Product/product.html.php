@@ -12,12 +12,27 @@
 ?>
 <!--MAIN SECTION-->
 <main class="main_section">
+    <section class="modal">
+        <h3>Shopping Cart</h3>
+        <div class="shoping_content">
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Cost</th>
+                    <th>Count</th>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </section>
     <section class="product_wrapper">
         <!--PRODUCT TEMPLATINGS-->
         <?php
             for ($i = 0; $i < $products->getCount(); $i++) { ?>
                 <div class="product_bloc">
-                    <?=$products->getProductName($i)?>
+                    <?=$products->getProduct($i)?>
                 </div>
         <?php   } ?>
     </section>

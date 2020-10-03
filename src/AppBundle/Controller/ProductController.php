@@ -41,7 +41,7 @@
             return $this->items;
         }
 
-        public function getProductName($product_num)
+        public function getProduct($product_num)
         {
             // Get an array of products
             $product_array = self::getArrayOfProducts();
