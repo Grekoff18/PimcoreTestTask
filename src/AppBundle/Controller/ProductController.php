@@ -47,8 +47,8 @@
             $product_array = self::getArrayOfProducts();
             // Return template some product with a ready-made structure
             return  "<h3 class='product_title'>".$product_array[$product_num]->getName()."</h3>"
-                  . "<p class='product_description'>".$product_array[$product_num]->getDescription()."</p>"
+                  . $product_array[$product_num]->getDescription() 
                   . $product_array[$product_num]->getImg()->getThumbnail("logo")->getHtml()
-                  . "<button class='add_to_card'>Add to card</button>";
+                  . "<button class='add_to_card' data-id='{$product_array[$product_num]->getCod()}'>Add to card</button>";
         }
     }

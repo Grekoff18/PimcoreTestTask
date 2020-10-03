@@ -9,7 +9,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
    'name' => 'Base',
    'description' => '',
    'creationDate' => 1601639277,
-   'modificationDate' => 1601668189,
+   'modificationDate' => 1601726027,
    'userOwner' => 2,
    'userModification' => 0,
    'classId' => '1',

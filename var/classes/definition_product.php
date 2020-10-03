@@ -7,7 +7,7 @@
 
 
 Fields Summary: 
-- sky [input]
+- cod [input]
 - name [input]
 - description [wysiwyg]
 - img [image]
@@ -19,7 +19,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'product',
    'description' => 'some desctiption',
    'creationDate' => 0,
-   'modificationDate' => 1601667559,
+   'modificationDate' => 1601726013,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -82,10 +82,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'columnLength' => 190,
              'phpdocType' => 'string',
              'regex' => '',
-             'unique' => false,
+             'unique' => true,
              'showCharCount' => false,
-             'name' => 'sky',
-             'title' => 'sky',
+             'name' => 'cod',
+             'title' => 'cod',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
