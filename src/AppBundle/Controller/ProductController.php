@@ -37,6 +37,8 @@
                 && DataObject\Product::getById(6)) {
                 // If arrays exist -> write to the item array
                 array_push($this->items, DataObject\Product::getById(4), DataObject\Product::getById(5), DataObject\Product::getById(6));
+            } else {
+                exit();
             }
             return $this->items;
         }
@@ -47,7 +49,7 @@
             $product_array = self::getArrayOfProducts();
             // Return template some product with a ready-made structure
             return  "<h3 class='product_title'>".$product_array[$product_num]->getName()."</h3>"
-                  . $product_array[$product_num]->getDescription() 
+                  . $product_array[$product_num]->getDescription()
                   . $product_array[$product_num]->getImg()->getThumbnail("logo")->getHtml()
                   . "<button class='add_to_card' data-id='{$product_array[$product_num]->getCod()}'>Add to card</button>";
         }

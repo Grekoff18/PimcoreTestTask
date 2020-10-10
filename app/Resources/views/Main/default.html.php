@@ -8,11 +8,11 @@
 ?>
 <!--Sign In Form-->
 <div class="form_wrapper">
-    <form action="/signin" method="post" id="signin">
+    <form method="post" id="signin">
         <label>Sign In</label>
         <input type="text" id="username" name="username" placeholder="Type your username">
         <input type="text" id="password" name="password" placeholder="Type your password">
-        <button id="form_Btn" class="form_btn" type="submit" onclick="getRegister();"><?=$main->getImg(6, "logo");?></button>
+        <button class="form_btn" type="submit" onclick="regForm();"><?=$main->getImg(6, "logo");?></button>
         <p>
             <?=$this->input("link-description");?>
             <?php
