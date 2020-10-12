@@ -22,7 +22,3 @@ function modalPopUp() {
     })
 }
 
-let signInForm = document.getElementById("signin");
-function regForm(event) {
-    
-}

@@ -5,7 +5,8 @@
     use Pimcore\Controller\FrontendController;
     use Pimcore\Model\Asset;
     use Symfony\Component\HttpFoundation\Request;
-    use Symfony\Component\HttpFoundation\ParameterBag;
+    use Symfony\Component\Routing\Annotation\Route;
+
 
     class MainController extends FrontendController
     {

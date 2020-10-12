@@ -102,6 +102,10 @@
 
 <div id="site">
     <div id="logo">
+        <?php
+            $app = new \AppBundle\Controller\DefaultController();
+            echo $app->getFormParameters("username");
+        ?>
         <a href="http://www.pimcore.com/"><img src="/bundles/pimcoreadmin/img/logo-claim-gray.svg" style="width: 400px;" /></a>
         <hr />
     </div>
