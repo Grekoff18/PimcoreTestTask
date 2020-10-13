@@ -10,8 +10,8 @@
 <div class="form_wrapper">
     <form action="/" method="post" id="signin">
         <label>Sign In</label>
-        <input type="text" id="username" name="username" placeholder="Type your username">
-        <input type="text" id="password" name="password" placeholder="Type your password">
+        <input type="text" id="username" name="username" placeholder="Type your username" autofocus>
+        <input type="text" id="password" name="password" placeholder="Type your password" autofocus>
         <button class="form_btn" type="submit"><?=$main->getImg(6, "logo");?></button>
         <p>
             <?=$this->input("link-description");?>

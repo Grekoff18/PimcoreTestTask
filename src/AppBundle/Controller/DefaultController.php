@@ -3,8 +3,8 @@
 namespace AppBundle\Controller;
 
 use Pimcore\Controller\FrontendController;
-use Symfony\Component\Routing\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
