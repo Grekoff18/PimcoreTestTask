@@ -1,8 +1,5 @@
 <?php
-    use Pimcore\Model\Asset;
-    use Pimcore\Model\Document\Page;
     $products = new \AppBundle\Controller\ProductController();
-
     // appending base template
     $this->extend('base.html.php');
     // rewriting title tag
@@ -28,7 +25,7 @@
         </div>
     </section>
     <section class="product_wrapper">
-        <!--PRODUCT TEMPLATINGS-->
+        <!--PRODUCT TEMPLATING-->
         <?php
             for ($i = 0; $i < $products->getCount(); $i++) { ?>
                 <div class="product_bloc">

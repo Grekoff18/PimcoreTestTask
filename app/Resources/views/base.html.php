@@ -8,11 +8,20 @@
                      ->prependStylesheet('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap', 'screen', true, ['rel' => 'stylesheet']);
     // Setting dynamic javascript files
     $this->headScript()->appendFile('/js/script.js', 'text/javascript');
+    use Pimcore\Model\Document;
+    use Pimcore\Model\Document\Page;
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="<?=$this->getLocale();?>">
 <head>
     <meta charset="UTF-8">
+    <?php
+    $document = $this->document;
+    if (!$document) {
+    // use "home" document as default if no document is present
+    $document = Document::getById(1);
+    $this->document = $document;
+    } ?>
     <!-- Calling our meta tags -->
     <?=$this->headMeta();?>
     <!-- this is dynamically title tag and you can rewrite it in other files -->
