@@ -52,5 +52,5 @@ services:
         class: Pimcore\Security\Encoder\Factory\UserAwareEncoderFactory
         arguments:
             - Pimcore\Security\Encoder\PasswordFieldEncoder
-            - [ 'password' ]
+            - ['password']
         

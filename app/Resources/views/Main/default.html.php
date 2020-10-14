@@ -1,10 +1,19 @@
 <?php
+    /**
+     * @var \Pimcore\Templating\PhpEngine $this
+     * @var \Pimcore\Templating\PhpEngine $view
+     * @var \Pimcore\Templating\GlobalVariables $app
+     */
     use AppBundle\Controller\MainController;
     $main = new MainController();
     // appending base template
     $this->extend('base.html.php');
     // rewriting title tag
     $this->slots()->set('title', 'SignIn');
+    /**
+     * @var \Symfony\Component\Form\FormView $form
+     */
+    $form = $this->form;
 ?>
 <!--Sign In Form-->
 <div class="form_wrapper">
