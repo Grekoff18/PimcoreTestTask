@@ -5,8 +5,7 @@
     use Pimcore\Controller\FrontendController;
     use Pimcore\Model\Asset;
     use Symfony\Component\HttpFoundation\Request;
-    use Symfony\Component\Routing\Annotation\Route;
-
+    use Symfony\Component\HttpFoundation\Response;
 
     class MainController extends FrontendController
     {

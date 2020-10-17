@@ -1,4 +1,10 @@
 <?php
+    /**
+     * @var Pimcore\Templating\PhpEngine $this
+     * @var Pimcore\Templating\PhpEngine $view
+     * @var Pimcore\Templating\GlobalVariables $app
+     */
+
     // Setting dynamic meta tags.
     $this->headMeta()->appendName('viewport', 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
                      ->appendHttpEquiv('X-UA-Compatible', 'ie=edge');
@@ -9,7 +15,7 @@
     // Setting dynamic javascript files
     $this->headScript()->appendFile('/js/script.js', 'text/javascript');
     use Pimcore\Model\Document;
-    use Pimcore\Model\Document\Page;
+
 ?>
 <!doctype html>
 <html lang="<?=$this->getLocale();?>">
