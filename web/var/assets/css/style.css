@@ -157,7 +157,6 @@ li, a, button {
     font-size: 25px;
     padding-left: 7px;
     padding-bottom: 3px;
-    text-align: center;
     transition: all;
     transition-duration: 0.3s;
 }
@@ -194,8 +193,6 @@ li, a, button {
 }
 
 .product_bloc {
-    display: flex;
-    flex-direction: column;
     padding: 35px;
     margin-top: 40px;
     background-color: rgb(28, 30, 33);
@@ -214,6 +211,9 @@ li, a, button {
 }
 
 .product_bloc>p {
+    max-width: 250px;
+    max-height: 100px;
+    overflow: hidden;
     font-size: 12px;
     padding: 10px 0px;
 }
@@ -225,7 +225,6 @@ li, a, button {
     padding: 5px;
     background-color: rgb(52,56,61);
     border-radius: 5px;
-    align-self: flex-end;
     margin-top: 20px;
     transition: all 0.2s ease 0s;
 }
@@ -300,3 +299,32 @@ li, a, button {
     border-right: 2px solid; 
 }
 
+/* Current product block */
+
+.current_product {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    opacity: 0;
+    transition-duration: 0.3s;
+}
+
+.current_product-wrapper {
+    width: 67%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.current_product-title {
+    color: rgb(255, 255, 255);
+}
+
+.current_product-btn {
+    display: inline-block;
+    width: 5%;
+    height: 3%;
+    background-color: rgb(52,56,61);
+    justify-content: flex-end;
+}

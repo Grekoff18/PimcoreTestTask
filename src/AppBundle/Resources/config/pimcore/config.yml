@@ -1,6 +1,3 @@
-imports:
-    - { resource: security.yml }
-
 pimcore:
     # we override the generated user model with a custom class which implements the UserInterface
     models:

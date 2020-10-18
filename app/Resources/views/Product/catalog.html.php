@@ -1,20 +1,21 @@
 <?php
-    /**
-     * @var Pimcore\Templating\PhpEngine $this
-     * @var Pimcore\Templating\PhpEngine $view
-     * @var Pimcore\Templating\GlobalVariables $app
-     */
-
+    // connecting to CatalogController
     $products = new \AppBundle\Controller\CatalogController();
+
     // appending base template
     $this->extend('base.html.php');
+
     // rewriting title tag
     $this->slots()->set('title', 'Catalog');
+
     // displaying header section
     echo $this->template("header.html.php");
 ?>
+
 <!--MAIN SECTION-->
 <main class="main_section">
+
+    <!-- ModalPopUp Section -->
     <section class="modal">
         <h3>Shopping Cart</h3>
         <div class="shopping_content">
@@ -30,20 +31,25 @@
             </table>
         </div>
     </section>
+
+    <!-- Current product section -->
     <section class="current_product">
         <div class="current_product-wrapper">
-            <h3 class="cp_title"></h3>
-            <p class="cp_description"></p>
-            <img class="cp_img" src="" alt="">
+            <h3 class="current_product-title"></h3>
+            <p class="current_product-description"></p>
+            <img src="" alt="">
         </div>
+        <button class="current_product-btn">X</button>
     </section>
-    <section class="product_wrapper">
-        <!--PRODUCT TEMPLATING-->
+
+    <!-- Section with all product objects -->
+    <section class="product_wrapper justify-content-sm-center justify-content-md-between">
         <?php
         for ($i = 0; $i < $products->getCount(); $i++) { ?>
-            <div class="product_bloc">
+            <div class="product_bloc d-flex flex-column">
                 <?= $products->getProduct($i) ?>
             </div>
         <?php   } ?>
     </section>
+
 </main>

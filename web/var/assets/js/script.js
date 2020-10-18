@@ -35,32 +35,48 @@ function modalPopUp() {
 }
 
 let currentProduct = [];
+let currentProductWrapper = document.querySelector(".current_product-wrapper");
 let product = document.querySelectorAll(".product_bloc");
-let productCart = document.querySelector(".current_product-wrapper");
+let wrapper = document.querySelector(".current_product");
+
+function createElem(html_elem, value) {
+    let variable = document.createElement(html_elem);
+    if (variable !== "undefined") variable.setAttribute("class", value);
+    return variable;
+}
+
+if (currentProductWrapper.children[0].innerHTML == "") console.log("hello");
 
 for (let i = 0; i < product.length; i++) {
-    product[i].addEventListener("click", event => {
-        currentProduct["title"]       = product[i].childNodes[1].innerHTML;
-        currentProduct["description"] = product[i].childNodes[2].innerHTML;
-        currentProduct["img"]         = product[i].childNodes[3].nextSibling.currentSrc;
-        currentProduct["id"]          = product[i].childNodes[5].dataset.id;
+    if (product.length > 0 && product[i] !== "undefined") {
+        product[i].addEventListener("click", (event) => {
+            
+            currentProduct["title"]       = product[i].childNodes[1].innerHTML;
+            currentProduct["description"] = product[i].childNodes[2].innerHTML;
+            currentProduct["img"]         = product[i].childNodes[3].nextSibling.currentSrc;
+            currentProduct["id"]          = product[i].childNodes[5].dataset.id;
 
+            wrapper.style.display = "block";
+            wrapper.style.background = "rgb(28, 30, 33)";
+            wrapper.style.boxShadow = "0 0 10px rgb(28, 30, 33)";
+            wrapper.style.marginTop = "40px";
+            wrapper.style.padding = "30px";
+            wrapper.style.opacity = "1";
 
+            switch (product[i].childNodes.length > 0) {
 
-        switch (productCart.children.length !== 0) {
+                case product[i].childNodes[1].innerHTML !== "":
+                    currentProductWrapper.children[0].innerHTML = currentProduct["title"];
 
-            case productCart.children[0].innerHTML !== "" || productCart.children[0] !== "undefined":
-                 productCart.children[0].innerHTML = currentProduct["title"];
+                case product[i].childNodes[2].innerHTML !== "":
+                    currentProductWrapper.children[1].innerHTML = currentProduct["description"];
 
-            case productCart.children[1].innerHTML !== "" || productCart.children[1] !== "undefined":
-                 productCart.children[1].innerHTML = currentProduct["description"];
-
-        }
-
-        // if (productCart.children[0].innerHTML !== " ") {
-        //     productCart.children[0].innerHTML = currentProduct["title"];
-        //     productCart.children[0].innerHTML = currentProduct["title"];
-        //     productCart.children[0].innerHTML = currentProduct["title"];
-        // }
-    })
+                case product[i].childNodes[3].nextSibling.currentSrc !== "":
+                    currentProductWrapper.children[2].setAttribute("src", currentProduct["img"]);
+                
+             }       
+        })
+    }  
 }
+
+// Замертка в дальнейшом при нажатии на документе фиксировать клик и если клоик не неа продукт блоке карте то тогда убирать выбранный продукт

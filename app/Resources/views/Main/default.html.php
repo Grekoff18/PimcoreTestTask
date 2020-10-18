@@ -1,13 +1,11 @@
 <?php
-    /**
-     * @var Pimcore\Templating\PhpEngine $this
-     * @var Pimcore\Templating\PhpEngine $view
-     * @var Pimcore\Templating\GlobalVariables $app
-     */
     // appending base template
     $this->extend('base.html.php');
+
     // rewriting title tag
     $this->slots()->set('title', 'SignIn');
+
+    // connecting to MainController
     use AppBundle\Controller\MainController;
     $main = new MainController();
 ?>
@@ -17,7 +15,7 @@
        <label>Sign In</label>
        <input type="text" id="username" name="username" placeholder="Type your username" autofocus>
        <input type="text" id="password" name="password" placeholder="Type your password" autofocus>
-       <button class="form_btn" type="submit">
+       <button class="form_btn text-center" type="submit">
             <!-- Block with btn img -->
            <?=$main->getImg(6, "logo");?>
        </button>
