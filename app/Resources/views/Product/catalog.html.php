@@ -37,7 +37,7 @@
         <div class="current_product-wrapper">
             <h3 class="current_product-title"></h3>
             <p class="current_product-description"></p>
-            <img src="" alt="">
+            <img class="current_product-img" src="" alt="">
         </div>
         <button class="current_product-btn">X</button>
     </section>
