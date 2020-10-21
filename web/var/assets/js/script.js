@@ -127,6 +127,7 @@ if (currentBtn !== "undefined" && currentBtn !== null) {
 /* Function for created some html element */
 function createElem(html_elem, value) {
     let variable = document.createElement(html_elem);
+    
     if (variable !== "undefined") variable.setAttribute("class", value);
     return variable;
 }

@@ -5,6 +5,7 @@
     use Pimcore\Controller\FrontendController;
     use Pimcore\Model\DataObject;
     use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
     class CatalogController extends FrontendController
     {
@@ -34,9 +35,9 @@
         public function getArrayOfProducts()
         {
             // Checking if the array is empty
-            if (DataObject\Product::getById(4)
-                && DataObject\Product::getById(5)
-                && DataObject\Product::getById(6)) {
+            if (DataObject\Product::getById(4) &&
+                DataObject\Product::getById(5) &&
+                DataObject\Product::getById(6)) {
                 // If arrays exist -> write to the item array
                 array_push($this->items, DataObject\Product::getById(4), DataObject\Product::getById(5), DataObject\Product::getById(6));
             } else {
@@ -56,6 +57,54 @@
             return  "<h3 class='product_title'>".$product_array[$product_num]->getName()."</h3>"
                   . $product_array[$product_num]->getDescription()
                   . $product_array[$product_num]->getImg()->getThumbnail("logo")->getHtml()
-                  . "<button class='add_to_card align-self-end' data-id='{$product_array[$product_num]->getCod()}'>Add to card</button>";
+                  . "<button class='add_to_card align-self-end' data-id='{$product_array[$product_num]->getCod()}'>
+                        <a href='?product_id={$product_array[$product_num]->getCod()}' class='btn-link'>Add to card</a>
+                    </button>";
         }
+
+        public function getCurrentName($num)
+        {
+            $getParam = new Request($_GET);
+            $product_id = $getParam->get("product_id");
+            $product_array = $this->getArrayOfProducts();
+            
+            if (isset($product_id) && $product_array[$num]->getCod()) {
+                if ($product_id == $product_array[$num]->getCod()) {
+                    echo $product_array[$num]->getName();
+                }
+            }
+        }
+
+        public function getCurrentDescription($num) 
+        {
+            $getParam = new Request($_GET);
+            $product_id = $getParam->get("product_id");
+            $product_array = $this->getArrayOfProducts();
+
+            if (isset($product_id) && $product_array[$num]->getCod()) {
+                if ($product_id == $product_array[$num]->getCod()) {
+                    echo $product_array[$num]->getDescription();
+                }
+            }
+        }
+
+    public function addToCard($num) 
+    {
+        $get     = new Request($_GET);
+        $session = new SessionInterface();
+
+        $product_id = $get->get("product_id");
+        $product_array = $this->getArrayOfProducts();
+
+        if (isset($product_id) && $product_array[$num]->getCod()) {
+
+            if ($product_id == $product_array[$num]->getCod()) {
+                
+            }
+
+        }
+
+    }
+
+
     }

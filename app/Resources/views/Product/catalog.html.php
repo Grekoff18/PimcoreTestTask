@@ -49,7 +49,12 @@
             <div class="product_bloc d-flex flex-column">
                 <?= $products->getProduct($i) ?>
             </div>
-        <?php   } ?>
+        <?php } ?>
     </section>
-
+    <?php 
+        for ($i = 0; $i < $products->getCount(); $i++) {
+            $products->getCurrentDescription($i);
+            $products->getCurrentName($i);
+        }
+    ?>
 </main>
