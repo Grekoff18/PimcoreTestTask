@@ -3,10 +3,10 @@
     $products = new \AppBundle\Controller\CatalogController();
 
     // appending base template
-    $this->extend('base.html.php');
+    $this->extend("base.html.php");
 
     // rewriting title tag
-    $this->slots()->set('title', 'Catalog');
+    $this->slots()->set("title", "Catalog");
 
     // displaying header section
     echo $this->template("header.html.php");
@@ -26,7 +26,6 @@
                     <th>Count</th>
                 </tr>
                 <tr>
-                    <td></td>
                 </tr>
             </table>
         </div>

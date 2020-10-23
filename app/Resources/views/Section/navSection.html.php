@@ -11,6 +11,6 @@
         $firstLink = Page::getById(1);
     }
 
-    $mainNavigation = $this->navigation()->build(['active' => $document, 'root' => $firstLink]);
+    $mainNavigation = $this->navigation()->build(["active" => $document, "root" => $firstLink]);
 
     echo $this->navigation()->render($mainNavigation);

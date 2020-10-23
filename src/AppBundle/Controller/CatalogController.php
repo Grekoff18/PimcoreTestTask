@@ -59,7 +59,7 @@
                   . $product_array[$product_num]->getDescription()
                   . $product_array[$product_num]->getImg()->getThumbnail("logo")->getHtml()
                   . "<button class='add_to_card align-self-end' data-id='{$product_array[$product_num]->getCod()}'>
-                        <a href='?product_id={$product_array[$product_num]->getCod()}' class='btn-link'>Add to card</a>
+                        <a href='Card?product_id={$product_array[$product_num]->getCod()}' class='btn-link'>Add to card</a>
                     </button>";
         }
 
@@ -108,7 +108,7 @@
                 }
                
             } else {
-                //
+                echo "Hello";
             } 
 
         }

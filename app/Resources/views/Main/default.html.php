@@ -1,9 +1,9 @@
 <?php
     // appending base template
-    $this->extend('base.html.php');
+    $this->extend("base.html.php");
 
     // rewriting title tag
-    $this->slots()->set('title', 'SignIn');
+    $this->slots()->set("title", "SignIn");
 
     // connecting to MainController
     use AppBundle\Controller\MainController;
