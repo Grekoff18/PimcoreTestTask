@@ -5,23 +5,15 @@
     use Pimcore\Controller\FrontendController;
     use Pimcore\Model\DataObject;
     use Symfony\Component\HttpFoundation\Request;
-    use Symfony\Component\HttpFoundation\Session\SessionInterface;
-
+    use Symfony\Component\HttpFoundation\RedirectResponse;
     class CatalogController extends FrontendController
     {
-
-        /**
-         * @var $count => Count of our arrays;
-         * @var $product_array => Array with info about some product;
-         * @arr $items == @arr $product_array;
-         */
-
         public $count;
         public $product_array;
         public $items = [];
 
         public function catalogAction(Request $request)
-        {
+        {   
 
         }
 
@@ -29,6 +21,10 @@
         {
             // In this method we get count of our arrays
             $this->count = new DataObject\Product\Listing();
+
+            /**
+             * return => (int);
+             */
             return $this->count->getCount();
         }
 
@@ -44,6 +40,9 @@
                 exit();
             }
 
+            /**
+             * Return => array
+             */
             return $this->items;
 
         }
@@ -53,7 +52,9 @@
             // Get an array of products
             $product_array = $this->getArrayOfProducts();
 
-            // Return template some product with a ready-made structure
+            /**
+             * Return => template
+             */
             return  "<h3 class='product_title'>".$product_array[$product_num]->getName()."</h3>"
                   . $product_array[$product_num]->getDescription()
                   . $product_array[$product_num]->getImg()->getThumbnail("logo")->getHtml()
@@ -62,49 +63,54 @@
                     </button>";
         }
 
-        public function getCurrentName($num)
+        public function addToCard($num) 
         {
-            $getParam = new Request($_GET);
-            $product_id = $getParam->get("product_id");
+            $get = new Request($_GET);
+
+            $product_id    = $get->get("product_id");
             $product_array = $this->getArrayOfProducts();
-            
-            if (isset($product_id) && $product_array[$num]->getCod()) {
+            $product_check = false;
+
+            if (isset($product_id) && ($product_array[$num]->getCod() > 0)) {
+
                 if ($product_id == $product_array[$num]->getCod()) {
-                    echo $product_array[$num]->getName();
+
+                    if (!isset($_SESSION["product_list"])) {
+                        $_SESSION["product_list"][] = [
+                            $product_array[$num]->getName(),
+                            $product_array[$num]->getDescription(),
+                            $product_array[$num]->getCod(),
+                        ];
+                    }
+                    
                 }
-            }
-        }
 
-        public function getCurrentDescription($num) 
-        {
-            $getParam = new Request($_GET);
-            $product_id = $getParam->get("product_id");
-            $product_array = $this->getArrayOfProducts();
+                if (isset($_SESSION["product_list"])) {
 
-            if (isset($product_id) && $product_array[$num]->getCod()) {
-                if ($product_id == $product_array[$num]->getCod()) {
-                    echo $product_array[$num]->getDescription();
+                    foreach($_SESSION["product_list"] as $value) {
+
+                        if ($value[0] === $product_array[$num]->getName() &&
+                            $value[1] === $product_array[$num]->getDescription() &&
+                            $value[2] === $product_array[$num]->getCod()) {
+                                $product_check = true;
+                        }
+
+                    }
+
                 }
-            }
-        }
 
-    public function addToCard($num) 
-    {
-        $get     = new Request($_GET);
-        $session = new SessionInterface();
-
-        $product_id = $get->get("product_id");
-        $product_array = $this->getArrayOfProducts();
-
-        if (isset($product_id) && $product_array[$num]->getCod()) {
-
-            if ($product_id == $product_array[$num]->getCod()) {
-                
-            }
+                if (!$product_check) {
+                    $_SESSION["product_list"][] = [
+                        $product_array[$num]->getName(),
+                        $product_array[$num]->getDescription(),
+                        $product_array[$num]->getCod(),
+                    ];
+                }
+               
+            } else {
+                //
+            } 
 
         }
-
-    }
-
 
     }

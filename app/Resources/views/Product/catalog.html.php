@@ -52,9 +52,9 @@
         <?php } ?>
     </section>
     <?php 
-        for ($i = 0; $i < $products->getCount(); $i++) {
-            $products->getCurrentDescription($i);
-            $products->getCurrentName($i);
+        for ($i = 0; $i < $products->getCount(); $i++) {  
+            $products->addToCard($i);
+            print_r($_SESSION["product_list"][$i][0]);
         }
     ?>
 </main>
