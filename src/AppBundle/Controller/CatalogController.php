@@ -33,9 +33,10 @@
             // Checking if the array is empty
             if (DataObject\Product::getById(4) &&
                 DataObject\Product::getById(5) &&
-                DataObject\Product::getById(6)) {
+                DataObject\Product::getById(6) &&
+                DataObject\Product::getById(11)) {
                 // If arrays exist -> write to the item array
-                array_push($this->items, DataObject\Product::getById(4), DataObject\Product::getById(5), DataObject\Product::getById(6));
+                array_push($this->items, DataObject\Product::getById(4), DataObject\Product::getById(5), DataObject\Product::getById(6), DataObject\Product::getById(11));
             } else {
                 exit();
             }
@@ -61,56 +62,6 @@
                   . "<button class='add_to_card align-self-end' data-id='{$product_array[$product_num]->getCod()}'>
                         <a href='Card?product_id={$product_array[$product_num]->getCod()}' class='btn-link'>Add to card</a>
                     </button>";
-        }
-
-        public function addToCard($num) 
-        {
-            $get = new Request($_GET);
-
-            $product_id    = $get->get("product_id");
-            $product_array = $this->getArrayOfProducts();
-            $product_check = false;
-
-            if (isset($product_id) && ($product_array[$num]->getCod() > 0)) {
-
-                if ($product_id == $product_array[$num]->getCod()) {
-
-                    if (!isset($_SESSION["product_list"])) {
-                        $_SESSION["product_list"][] = [
-                            $product_array[$num]->getName(),
-                            $product_array[$num]->getDescription(),
-                            $product_array[$num]->getCod(),
-                        ];
-                    }
-                    
-                }
-
-                if (isset($_SESSION["product_list"])) {
-
-                    foreach($_SESSION["product_list"] as $value) {
-
-                        if ($value[0] === $product_array[$num]->getName() &&
-                            $value[1] === $product_array[$num]->getDescription() &&
-                            $value[2] === $product_array[$num]->getCod()) {
-                                $product_check = true;
-                        }
-
-                    }
-
-                }
-
-                if (!$product_check) {
-                    $_SESSION["product_list"][] = [
-                        $product_array[$num]->getName(),
-                        $product_array[$num]->getDescription(),
-                        $product_array[$num]->getCod(),
-                    ];
-                }
-               
-            } else {
-                echo "Hello";
-            } 
-
         }
 
     }

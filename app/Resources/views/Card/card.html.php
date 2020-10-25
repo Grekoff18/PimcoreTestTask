@@ -1,7 +1,13 @@
 <?php
     // connecting to CardController
-    $card       = new \AppBundle\Controller\CardController();
-    $controller = new \AppBundle\Controller\CatalogController();
+
+    use AppBundle\Controller\CatalogController;
+    use AppBundle\Controller\CardController;
+
+use function PHPSTORM_META\type;
+
+$card = new AppBundle\Controller\CardController();
+    $catalogController = new CatalogController();
 
     // appending base template
     $this->extend("base.html.php");
@@ -11,6 +17,9 @@
 
     // displaying header section
     echo $this->template("header.html.php");
+
+    // add shoping-card actions
+    $card->addAction();
 ?>
 
 <main class="main">
@@ -23,15 +32,9 @@
                     <th>Cost</th>
                     <th>Count</th>
                 </tr>
-                <tr>
-                    <?php
-                        for ($i = 0; $i < $controller->getCount(); $i++) {  
-                            $controller->addToCard($i);
-                            print_r($_SESSION["product_list"][$i][0]);
-                        }
-                    ?>
-                </tr>
-            </table>
+                <?php print_r($_SESSION["product_list"]);?>
+                <?=gettype($_SESSION["product_list"]);?>
+                </table>
         </div>
     </section>
 </main>
