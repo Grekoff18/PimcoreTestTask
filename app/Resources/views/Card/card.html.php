@@ -24,10 +24,10 @@
                     <th>Count</th>
                 </tr>
                 <?php
-                for ($i = 0; $i < $catalogController->getCount(); $i++) {
-                    $card->addToCard($i);
-                }
-                print_r($card->array);
+                
+                $card->addTo();
+                
+                print_r($_SESSION["product_list"]);
                 ?>
             </table>
         </div>
