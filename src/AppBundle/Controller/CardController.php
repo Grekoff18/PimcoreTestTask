@@ -3,15 +3,8 @@
 namespace AppBundle\Controller;
 
 use Pimcore\Controller\FrontendController;
-use AppBundle\Controller\CatalogController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
-
-
 class CardController extends FrontendController
 {
 
@@ -23,7 +16,6 @@ class CardController extends FrontendController
     public function addTo() 
     {
         $get  = new Request($_GET);
-        $catalog = new CatalogController();
         $session = new Session();
 
         $product_id = $get->get("product_id");
@@ -47,4 +39,3 @@ class CardController extends FrontendController
     }
 
 }
-// 0 0 => id

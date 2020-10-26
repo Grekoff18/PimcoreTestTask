@@ -14,6 +14,7 @@
 ?>
 
 <main class="main">
+
     <section class="shopping_card">
         <h3>Shopping Cart</h3>
         <div class="shopping_content">
@@ -27,4 +28,5 @@
             </table>
         </div>
     </section>
+    
 </main>
