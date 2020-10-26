@@ -23,12 +23,7 @@
                     <th>Cost</th>
                     <th>Count</th>
                 </tr>
-                <?php
-                
-                $card->addTo();
-                
-                print_r($_SESSION["product_list"]);
-                ?>
+                <?php print_r($card->addTo()); ?>
             </table>
         </div>
     </section>

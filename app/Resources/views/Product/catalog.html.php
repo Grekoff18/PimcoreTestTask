@@ -1,6 +1,8 @@
 <?php
     // connecting to CatalogController
+
     $products = new \AppBundle\Controller\CatalogController();
+    $card     = new AppBundle\Controller\CardController();
 
     // appending base template
     $this->extend("base.html.php");
@@ -50,10 +52,4 @@
             </div>
         <?php } ?>
     </section>
-    <?php 
-        // for ($i = 0; $i < $products->getCount(); $i++) {  
-        //     $products->addToCard($i);
-        //     print_r($_SESSION["product_list"][$i][0]);
-        // }
-    ?>
 </main>
